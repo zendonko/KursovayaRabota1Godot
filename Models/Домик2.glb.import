@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0a0mhsc5bxa1"
-path="res://.godot/imported/ХУЁСЕ БЛЯТЬ.glb-d5c431c78d6082ae78cee38b3a57518e.scn"
+path="res://.godot/imported/Домик2.glb-0bfd621b04c6ece0054d8bd051b67aec.scn"
 
 [deps]
 
-source_file="res://Models/ХУЁСЕ БЛЯТЬ.glb"
-dest_files=["res://.godot/imported/ХУЁСЕ БЛЯТЬ.glb-d5c431c78d6082ae78cee38b3a57518e.scn"]
+source_file="res://Models/Домик2.glb"
+dest_files=["res://.godot/imported/Домик2.glb-0bfd621b04c6ece0054d8bd051b67aec.scn"]
 
 [params]
 

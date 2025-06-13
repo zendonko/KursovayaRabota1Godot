@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x6bagqd4f4so"
-path.s3tc="res://.godot/imported/ХУЁСЕ БЛЯТЬ__Normal_.jpg-06574c02b8b738cacc983560c03368b2.s3tc.ctex"
+uid="uid://ewaj54vorno2"
+path.s3tc="res://.godot/imported/Домик2__Roughness_.png-3eccf31553ce4c79fa9e980fd0386e31.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "e740e014dd6d303442b1ecba9818abb6"
+"md5": "dbc68f9e4e592777201c3a8249481f6f"
 }
 
 [deps]
 
-source_file="res://Models/ХУЁСЕ БЛЯТЬ__Normal_.jpg"
-dest_files=["res://.godot/imported/ХУЁСЕ БЛЯТЬ__Normal_.jpg-06574c02b8b738cacc983560c03368b2.s3tc.ctex"]
+source_file="res://Models/Домик2__Roughness_.png"
+dest_files=["res://.godot/imported/Домик2__Roughness_.png-3eccf31553ce4c79fa9e980fd0386e31.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Models/ХУЁСЕ БЛЯТЬ__Normal_.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

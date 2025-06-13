@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8nnre3mkukbd"
-path.s3tc="res://.godot/imported/ХУЁСЕ БЛЯТЬ__Diffuse__4.jpg-924eaca4f0473f1881d4c6950e68d825.s3tc.ctex"
+uid="uid://cg8o2nv4cpgw7"
+path.s3tc="res://.godot/imported/Домик2__Roughness__5.png-68861c27a30a92845108218cc0927df0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "399234f7bf6f1115062f910f29ca0d69"
+"md5": "0981a4c3ea19cbe5352855e108228efd"
 }
 
 [deps]
 
-source_file="res://Models/ХУЁСЕ БЛЯТЬ__Diffuse__4.jpg"
-dest_files=["res://.godot/imported/ХУЁСЕ БЛЯТЬ__Diffuse__4.jpg-924eaca4f0473f1881d4c6950e68d825.s3tc.ctex"]
+source_file="res://Models/Домик2__Roughness__5.png"
+dest_files=["res://.godot/imported/Домик2__Roughness__5.png-68861c27a30a92845108218cc0927df0.s3tc.ctex"]
 
 [params]
 

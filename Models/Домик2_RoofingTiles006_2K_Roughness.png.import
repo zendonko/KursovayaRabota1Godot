@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc3tjyrljbtho"
-path.s3tc="res://.godot/imported/ХУЁСЕ БЛЯТЬ_RoofingTiles006_2K_Color.jpg-34543cecde85db271bce9d59627783ba.s3tc.ctex"
+uid="uid://b7ltxxtc815oa"
+path.s3tc="res://.godot/imported/Домик2_RoofingTiles006_2K_Roughness.png-dda9f9ead0464dc958b80aa7f3f0b391.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "e9a14ee336deb35b62369df96f61e8b0"
+"md5": "23b5efb3bfc9e41971ac92ee5e0b3adc"
 }
 
 [deps]
 
-source_file="res://Models/ХУЁСЕ БЛЯТЬ_RoofingTiles006_2K_Color.jpg"
-dest_files=["res://.godot/imported/ХУЁСЕ БЛЯТЬ_RoofingTiles006_2K_Color.jpg-34543cecde85db271bce9d59627783ba.s3tc.ctex"]
+source_file="res://Models/Домик2_RoofingTiles006_2K_Roughness.png"
+dest_files=["res://.godot/imported/Домик2_RoofingTiles006_2K_Roughness.png-dda9f9ead0464dc958b80aa7f3f0b391.s3tc.ctex"]
 
 [params]
 

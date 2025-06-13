@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8bjhl7y3hout"]
-
-[ext_resource type="PackedScene" uid="uid://d0a0mhsc5bxa1" path="res://Models/ХУЁСЕ БЛЯТЬ.glb" id="1_qssvl"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="ХУЁСЕ БЛЯТЬ" parent="." instance=ExtResource("1_qssvl")]

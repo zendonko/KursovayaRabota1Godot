@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy8v2xkoxbrrs"
-path.s3tc="res://.godot/imported/ХУЁСЕ БЛЯТЬ_RoofingTiles006_2K_Normal.jpg-4f7d8959f9a9c850608eb1ec0881aa95.s3tc.ctex"
+uid="uid://bnsyht2o0wpq"
+path.s3tc="res://.godot/imported/Домик2__Normal__3.jpg-0088c0b8e9ee5139e1d632b0846e4fed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "00b228df360185aded5899d45f146717"
+"md5": "e8229f718dfd479a6a63018b4ab775df"
 }
 
 [deps]
 
-source_file="res://Models/ХУЁСЕ БЛЯТЬ_RoofingTiles006_2K_Normal.jpg"
-dest_files=["res://.godot/imported/ХУЁСЕ БЛЯТЬ_RoofingTiles006_2K_Normal.jpg-4f7d8959f9a9c850608eb1ec0881aa95.s3tc.ctex"]
+source_file="res://Models/Домик2__Normal__3.jpg"
+dest_files=["res://.godot/imported/Домик2__Normal__3.jpg-0088c0b8e9ee5139e1d632b0846e4fed.s3tc.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Models/ХУЁСЕ БЛЯТЬ_RoofingTiles006_2K_Normal.jpg"
+roughness/src_normal="res://Models/Домик2__Normal__3.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
