@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dybc80jo3t0g4"]
+
+[ext_resource type="PackedScene" uid="uid://c24hxmi74k6e5" path="res://Models/ps1_phasmophobia.glb" id="1_4voej"]
+[ext_resource type="PackedScene" uid="uid://bevylx8cfcepv" path="res://Scenes/player.tscn" id="2_alii5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4voej"]
+albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_alii5"]
+material = SubResource("StandardMaterial3D_4voej")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpuk6"]
+size = Vector3(1.50488, 1.17664, 1.46185)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jpuk6"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_4voej")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Sketchfab_model/604e66b3bf6f435ea57c08713c095be8_fbx/RootNode/Room/Room_WallsRoofFloorExtras_0/StaticBody3D" index="0"]
+debug_color = Color(0.709966, 0, 0.273058, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_model/604e66b3bf6f435ea57c08713c095be8_fbx/RootNode/LivingRoomLight" index="1"]
+transform = Transform3D(0.0666667, 0, 0, 0, 0.0666667, 0, 0, 0, 0.0666667, 0, 0.0288851, 0)
+light_energy = 0.114
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sketchfab_model/604e66b3bf6f435ea57c08713c095be8_fbx/RootNode" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.52588e-05, 266.184)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sketchfab_model" index="1"]
+transform = Transform3D(-4.37114e-06, 53.97, 2.63693e-20, -100, -2.3591e-06, 1.89583e-12, 1.26389e-12, 2.03288e-20, 150, -361.423, -275.418, 0)
+mesh = SubResource("PlaneMesh_alii5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/MeshInstance3D" index="0"]
+transform = Transform3D(1, 0, -9.80549e-13, -2.84217e-14, 1, 1.18585e-20, 7.10543e-15, 0, 1, -0.011163, 0.108596, 0.123844)
+shape = SubResource("BoxShape3D_jpuk6")
+
+[node name="Player" parent="Sketchfab_model" index="2" groups=["player"] instance=ExtResource("2_alii5")]
+transform = Transform3D(50, 0, 0, 0, -2.18557e-06, -50, 0, 50, -2.18557e-06, -252.336, -282.322, 0)
+motion_mode = 1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sketchfab_model/Player" index="4"]
+mesh = SubResource("CapsuleMesh_jpuk6")

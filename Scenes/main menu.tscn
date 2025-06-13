@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7qhqj6m4kqk"]
+
+[ext_resource type="Script" uid="uid://dvuk6303kfyqx" path="res://Scripts/main_menu.gd" id="1_t8go7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t8go7"]
+font_size = 36
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_t8go7")
+
+[node name="MainMenuPanel" type="Panel" parent="."]
+offset_right = 1276.0
+offset_bottom = 721.0
+
+[node name="StartButton" type="Button" parent="MainMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.132
+anchor_top = 0.556
+anchor_right = 0.132
+anchor_bottom = 0.556
+offset_left = -134.432
+offset_top = 66.124
+offset_right = 134.568
+offset_bottom = 124.124
+grow_horizontal = 2
+grow_vertical = 2
+text = "Начать"
+
+[node name="CreditsButton" type="Button" parent="MainMenuPanel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 537.0
+offset_right = 304.0
+offset_bottom = 593.0
+text = "Титры"
+
+[node name="ExitButton" type="Button" parent="MainMenuPanel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 615.0
+offset_right = 304.0
+offset_bottom = 675.0
+text = "Выход"
+
+[node name="CreditsPanel" type="Panel" parent="."]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="CreditsLabel" type="Label" parent="CreditsPanel"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 224.0
+offset_right = 1059.0
+offset_bottom = 447.0
+text = "Идея: Павлик
+Помощник: Павлик
+Механики: Павлик
+Модели взяты из открытого источника"
+label_settings = SubResource("LabelSettings_t8go7")
+
+[node name="BackButton" type="Button" parent="CreditsPanel"]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 616.0
+offset_right = 1239.0
+offset_bottom = 687.0
+text = "Вернуться"
+
+[connection signal="pressed" from="MainMenuPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenuPanel/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenuPanel/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CreditsPanel/BackButton" to="." method="_on_back_button_pressed"]

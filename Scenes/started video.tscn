@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://by15vvbnstfa2"]
+
+[ext_resource type="Script" uid="uid://b686kuab3l8bi" path="res://Scripts/Main Menu/Videogame.gd" id="1_6pdv8"]
+[ext_resource type="AudioStream" uid="uid://dw811mq1e8df2" path="res://Sounds/2018-02-24_-_Monster_In_The_Field_-_David_Fesliyan.mp3" id="1_06xmb"]
+[ext_resource type="VideoStream" path="res://Sounds/game.ogv" id="1_e02ec"]
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1279.0
+offset_bottom = 717.0
+script = ExtResource("1_6pdv8")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_right = 1283.0
+offset_bottom = 720.0
+stream = ExtResource("1_e02ec")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("1_06xmb")
+autoplay = true

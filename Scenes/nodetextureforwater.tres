@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c154bmmpcrwva"]
+
+[ext_resource type="Shader" uid="uid://cblcqo7lovlmp" path="res://Scenes/water.gdshader" id="1_knd2e"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_knd2e")
+shader_parameter/wave_strength = 1.0
+shader_parameter/wave_scale = 0.02
+shader_parameter/WaterOpacity = 1.0
+shader_parameter/pixelation_level = 64

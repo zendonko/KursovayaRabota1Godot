@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=3 uid="uid://bevylx8cfcepv"]
+
+[ext_resource type="Script" uid="uid://dfg856sbtrhi0" path="res://Scripts/Player.cs" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://ckd32wmbfoyjj" path="res://Models/psx_first_person_arms.glb" id="2_6t5aa"]
+
+[sub_resource type="Environment" id="Environment_vgqql"]
+background_mode = 1
+background_color = Color(0.192022, 0.272899, 0.370157, 1)
+sky_rotation = Vector3(-0.202458, -1.41895, -1.30027)
+ambient_light_source = 1
+ambient_light_color = Color(0.47788, 0.47788, 0.47788, 1)
+ssr_enabled = true
+ssao_enabled = true
+
+[sub_resource type="Shader" id="Shader_fkybt"]
+code = "shader_type spatial;
+render_mode cull_disabled, unshaded;
+uniform sampler2D depth_texture : source_color, hint_depth_texture;
+uniform sampler2D screen_texture : source_color, hint_screen_texture, repeat_disable, filter_nearest;
+
+uniform bool enable_fog = true;
+uniform vec3 fog_color : source_color;
+uniform vec3 noise_color : source_color;
+uniform float fog_distance : hint_range(1, 6000) = 100;
+uniform float fog_fade_range : hint_range(1, 6000) = 50;
+uniform bool enable_noise = true;
+uniform float noise_time_fac : hint_range(0.1, 10) = 4;
+uniform bool enable_color_limitation = true;
+uniform int color_levels : hint_range(2, 256) = 32;
+uniform bool enable_dithering = true;
+uniform float dither_strength : hint_range(0.0, 1.0) = 0.3;
+
+float hashOld12(vec2 p){
+	return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453 + (TIME / noise_time_fac)) ;
+}
+
+vec3 color_mix(vec3 a, vec3 b, float f ){
+	f = clamp(abs(f), 0,1);
+	float invf = 1.0 - f;
+	return (a*f) + (b*invf);
+}
+
+vec3 quantize_color(vec3 color, int levels) {
+    float quantizer = float(levels - 1);
+    return floor(color * quantizer + 0.5) / quantizer;
+}
+
+float dither(vec2 position, float brightness) {
+    int x = int(mod(position.x, 4.0));
+    int y = int(mod(position.y, 4.0));
+    int index = x + y * 4;
+    float dithering[16] = float[](
+        0.0, 0.5, 0.125, 0.625,
+        0.75, 0.25, 0.875, 0.375,
+        0.1875, 0.6875, 0.0625, 0.5625,
+        0.9375, 0.4375, 1.0, 0.8125
+    );
+    float threshold = dithering[index];
+    return brightness < threshold ? 0.0 : 1.0;
+}
+
+void vertex() {
+  POSITION = vec4(VERTEX.xy, 1.0, 1.0);
+}
+
+void fragment(){
+	vec3 screen_color = texture(screen_texture, SCREEN_UV).rgb;
+	vec2 screen_coords = SCREEN_UV * 2.0 - 1.0;
+	float depth = texture(depth_texture, SCREEN_UV).x;
+	vec3 ndc = vec3(screen_coords, depth);
+
+	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+	view.xyz /= view.w;
+
+	float linear_depth = -view.z;
+	float depth_mask_inv = clamp((linear_depth - (fog_distance - fog_fade_range)) / fog_fade_range, 0.0, 1.0);
+	vec3 final_color = screen_color;
+
+	if (enable_noise){
+		vec3 twocolornoise = color_mix(fog_color, noise_color, hashOld12(screen_coords));
+		final_color = color_mix(twocolornoise, final_color, depth_mask_inv);
+	}
+	if (enable_fog){
+		final_color = color_mix(fog_color, final_color, depth_mask_inv);
+	}
+	if (enable_color_limitation){
+		final_color = quantize_color(final_color, color_levels);
+	}
+	if (enable_dithering){
+		float brightness = dot(final_color, vec3(0.3, 0.59, 0.11));
+		brightness += dither_strength * (dither(FRAGCOORD.xy, brightness) - 0.5);
+		final_color *= (1.0 + dither_strength * (dither(FRAGCOORD.xy, brightness) - 0.5));
+	}
+	ALBEDO = final_color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qn3nj"]
+render_priority = 0
+shader = SubResource("Shader_fkybt")
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = Color(0.299547, 0.299547, 0.299547, 1)
+shader_parameter/noise_color = Color(0, 0, 0, 1)
+shader_parameter/fog_distance = 100.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 128
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_x3wgy"]
+material = SubResource("ShaderMaterial_qn3nj")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3smsa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8erm5"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Camera")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 24.9663, 23.9072, 0)
+disable_mode = 2
+platform_on_leave = 2
+script = ExtResource("1_cvnsp")
+Camera = NodePath("Camera")
+SprintSpeed = 10.0
+JumpStrength = 6.0
+
+[node name="Camera" type="Camera3D" parent="." groups=["player_camera"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.953587, 0)
+environment = SubResource("Environment_vgqql")
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.797514)
+mesh = SubResource("QuadMesh_x3wgy")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.519276, -1.0923)
+light_energy = 11.344
+light_size = 0.061
+spot_range = 19.176
+spot_attenuation = 2.21
+spot_angle = 44.99
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_3smsa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8erm5")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_6t5aa")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -4.295, 0.425)

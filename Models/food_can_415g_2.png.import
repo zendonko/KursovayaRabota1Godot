@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://byya2oqbepf5t"
+path.s3tc="res://.godot/imported/food_can_415g_2.png-52a54fa788f0d8bbdc9db89449751732.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "f4ba57790911577f4f7d17335f31b6d2"
+}
+
+[deps]
+
+source_file="res://Models/food_can_415g_2.png"
+dest_files=["res://.godot/imported/food_can_415g_2.png-52a54fa788f0d8bbdc9db89449751732.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Models/food_can_415g_2.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
